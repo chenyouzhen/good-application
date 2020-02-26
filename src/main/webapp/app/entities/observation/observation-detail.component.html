@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="observation">
+            <h2><span>Observation</span> {{ observation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Phenomenon Time</span></dt>
+                <dd>
+                    <span>{{ observation.phenomenonTime }}</span>
+                </dd>
+                <dt><span>Result</span></dt>
+                <dd>
+                    <span>{{ observation.result }}</span>
+                </dd>
+                <dt><span>Result Time</span></dt>
+                <dd>
+                    <span>{{ observation.resultTime }}</span>
+                </dd>
+                <dt><span>Property</span></dt>
+                <dd>
+                    <span>{{ observation.property }}</span>
+                </dd>
+                <dt><span>Unit Of Measurement</span></dt>
+                <dd>
+                    <span>{{ observation.unitOfMeasurement }}</span>
+                </dd>
+                <dt><span>Interval Time</span></dt>
+                <dd>
+                    <span>{{ observation.intervalTime }}</span>
+                </dd>
+                <dt><span>Reserve</span></dt>
+                <dd>
+                    <span>{{ observation.reserve }}</span>
+                </dd>
+                <dt><span>Assembly Line</span></dt>
+                <dd>
+                    <div *ngIf="observation.assemblyLineId">
+                        <a [routerLink]="['/assembly-line', observation.assemblyLineId, 'view']">{{ observation.assemblyLineId }}</a>
+                    </div>
+                </dd>
+                <dt><span>Mapping</span></dt>
+                <dd>
+                    <div *ngIf="observation.mappingId">
+                        <a [routerLink]="['/mapping', observation.mappingId, 'view']">{{ observation.mappingId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/observation', observation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
