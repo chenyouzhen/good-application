@@ -1,0 +1,45 @@
+{
+    "name": "Mapping",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deviceId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "observation",
+            "otherEntityRelationshipName": "mapping",
+            "relationshipName": "observation"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "assemblyLine",
+            "otherEntityRelationshipName": "mapping",
+            "relationshipName": "assemblyLine",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226085100",
+    "entityTableName": "mapping",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
