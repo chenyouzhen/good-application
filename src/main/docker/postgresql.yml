@@ -1,0 +1,11 @@
+version: '2'
+services:
+  goodapplication-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/goodApplication/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=goodApplication
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
